@@ -3,6 +3,9 @@
     "*html": "html",
     "iostream": "cpp",
     "xiosbase": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "utility": "cpp",
+    "map": "cpp",
+    "queue": "cpp"
   }
 }
