@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*html": "html",
+    "iostream": "cpp",
+    "xiosbase": "cpp",
+    "string": "cpp",
+    "utility": "cpp",
+    "map": "cpp",
+    "queue": "cpp"
+  }
+}

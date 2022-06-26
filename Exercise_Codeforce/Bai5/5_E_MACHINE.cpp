@@ -1,53 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int Max = 2000001;
-int n;
-
-//Moi block dac trung cho 1 khoi thoi gian co the chay
-struct Block
-{
-  int s, t,c;
-  bool operator<(Block &b)
-  {
-    return s < b.s && t < b.t;
-  }
-};
-
-Block b[Max];
-int ans = -1;
-
-
-//Sap xep theo thoi gian bat dau khong giam
-bool cmp(Block& b1, Block& b2){
-  if(b1.s != b2.s) return b1.s>b2.s;
-  
-}
-
-bool checkOverlap(Block& b1, Block& b2){
-
-
-}
-void input()
-{
-  cin >> n;
-  for (int i = 0; i < n; i++)
-  {
-    cin>>b[i].s>>b[i].t;
-  }
-}
-
-
-void solve()
-{
-}
 
 int main()
 {
-  ios_base::sync_with_stdio(0);
-  cin.tie(NULL);
-  cout.tie(NULL);
-  input();
-  solve();
-  cout << ans;
+  // freopen("1.inp", "r", stdin);
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+
+  int n;
+  cin >> n;
+
+  vector<int> s(n), t(n);
+
+  // maxv là thời điểm kết thúc muộn nhất
+  int maxv = 0;
+  for (int i = 0; i < n; i++)
+  {
+    cin >> s[i] >> t[i];
+    maxv = max(maxv, t[i]);
+  }
+
+  // Vector L co maxv+1 full 0
+  vector<int> L(maxv + 1, 0), R(maxv + 2, 0);
+
+  // L[t[i]] la khoang lon nhat ve ben trai tai t[i]
+  // R[s[i]] la khoang lon nhat ve ben phai tai s[i]
+  // Tai moi diem se co the di ve ben trai hoac phai lon nhat lan luot la L[t] va R[t]
+  for (int i = 0; i < n; i++)
+  {
+    L[t[i]] = max(L[t[i]], t[i] - s[i]);
+    R[s[i]] = max(R[s[i]], t[i] - s[i]);
+  }
+
+  // Di tu trai sang phai, tai moi thoi diem t
+  for (int i = 1; i <= maxv; i++)
+    L[i] = max(L[i], L[i - 1]);
+
+  for (int i = maxv - 1; i >= 0; i--)
+    R[i] = max(R[i], R[i + 1]);
+
+  R[maxv] = R[maxv + 1] = 0;
+
+  int ans = -1;
+  for (int i = 0; i < n; i++)
+    ans = max(ans, L[t[i]] + R[t[i] + 1]);
+  cout << ans << endl;
+
   return 0;
 }
