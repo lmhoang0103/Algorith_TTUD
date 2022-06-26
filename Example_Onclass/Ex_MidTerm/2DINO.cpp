@@ -8,6 +8,9 @@ string s;
 queue<int> hanhlang;
 stack<int> chuong;
 
+
+
+
 void input()
 {
   cin >> n;

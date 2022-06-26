@@ -48,7 +48,7 @@ void TRY(int a)
     if (check(a, i))
     {
       x[a] = i;
-      visited[i] = true;s
+      visited[i] = true;
 
       if (a == 6)
         solution();
