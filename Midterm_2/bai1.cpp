@@ -6,7 +6,7 @@ const int MAX = 1000001;
 int n;
 int a[MAX];
 int s[MAX];
-int ans;
+unsigned long long ans;
 
 void input()
 {
@@ -33,7 +33,9 @@ void solve()
       s[i] = 1;
     }
 
-    ans = max(ans, s[i]);
+    // ans = max(ans, s[i]);
+    if (s[i] > ans)
+      ans = s[i];
   }
 }
 
