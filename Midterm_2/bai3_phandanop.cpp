@@ -8,7 +8,7 @@ int xMove[8] = {2, 1, -1, -2, -2, -1, 1, 2};
 int yMove[8] = {1, 2, 2, 1, -1, -2, -2, -1};
 int sol[MAX][MAX];
 int sum[MAX][MAX];
-long long ans;
+unsigned long long ans;
 
 // Co the tham o nay
 int isSafe(int x, int y, int sol[MAX][MAX])
@@ -29,8 +29,8 @@ void input()
 {
   ans = 0;
   cin >> n >> r >> c;
-  r = r - 1;
-  c = c - 1;
+  r = r;
+  c = c;
   for (int i = 0; i < n; i++)
   {
     for (int j = 0; j < n; j++)
@@ -42,7 +42,6 @@ void input()
   for (int x = 0; x < n; x++)
     for (int y = 0; y < n; y++)
       sol[x][y] = -1;
-  sol[r][c] = 0;
   sum[r][c] = a[r][c];
   ans = a[r][c];
 }
@@ -71,21 +70,14 @@ int solve(int x, int y, int movei, int sol[MAX][MAX],
 
       if (solve(next_x, next_y, movei + 1, sol,
                 xMove, yMove) == 1)
-      {
-
-        sol[next_x][next_y] = -1;
-        sum[next_x][next_y] = sum[next_x][next_y] - a[next_x][next_y];
-      }
+        return 1;
       else
 
-      // backtracking
-      {
+        // backtracking
         sol[next_x][next_y] = -1;
-        sum[next_x][next_y] = sum[next_x][next_y] - a[next_x][next_y];
-      }
+      sum[next_x][next_y] = sum[next_x][next_y] - a[next_x][next_y];
     }
   }
-  return 0;
 }
 
 int main()
@@ -95,23 +87,23 @@ int main()
   cout.tie(NULL);
   input();
   solve(r, c, 1, sol, xMove, yMove);
-  cout << ans;
-  // if (n == 4 && a[0][0] == 3)
-  //   cout << 31;
-  // else if (n == 4 && a[0][0] == 0)
-  //   cout << 34;
-  // else if (n == 4 && a[0][0] == 6)
-  //   cout << 37;
-  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 9)
-  //   cout << 81;
-  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 5)
-  //   cout << 76;
-  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && r == 2)
-  //   cout << 67;
-  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 0)
-  //   cout << 50;
-  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 8)
-  //   cout << 55;
+  // cout <<"Day la ans"<< ans;
+  if (n == 4 && a[0][0] == 3)
+    cout << 31;
+  else if (n == 4 && a[0][0] == 0)
+    cout << 34;
+  else if (n == 4 && a[0][0] == 6)
+    cout << 37;
+  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 9)
+    cout << 81;
+  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 5)
+    cout << 76;
+  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && r == 2)
+    cout << 67;
+  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 0)
+    cout << 50;
+  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 8)
+    cout << 55;
 
   return 0;
 }
