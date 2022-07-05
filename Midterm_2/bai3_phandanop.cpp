@@ -88,22 +88,22 @@ int main()
   input();
   solve(r, c, 1, sol, xMove, yMove);
   // cout <<"Day la ans"<< ans;
-  if (n == 4 && a[0][0] == 3)
-    cout << 31;
-  else if (n == 4 && a[0][0] == 0)
-    cout << 34;
-  else if (n == 4 && a[0][0] == 6)
-    cout << 37;
-  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 9)
-    cout << 81;
-  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 5)
-    cout << 76;
-  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && r == 2)
-    cout << 67;
-  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 0)
-    cout << 50;
-  else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 8)
-    cout << 55;
+  // if (n == 4 && a[0][0] == 3)
+  //   cout << 31;
+  // else if (n == 4 && a[0][0] == 0)
+  //   cout << 34;
+  // else if (n == 4 && a[0][0] == 6)
+  //   cout << 37;
+  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 9)
+  //   cout << 81;
+  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 5)
+  //   cout << 76;
+  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && r == 2)
+  //   cout << 67;
+  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 0)
+  //   cout << 50;
+  // else if (n == 5 && a[0][0] == 0 && a[n - 1][n - 1] == 6 && a[0][n - 1] == 8)
+  //   cout << 55;
 
   return 0;
 }
