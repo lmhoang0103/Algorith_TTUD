@@ -66,7 +66,7 @@ int main()
   freopen("test1.txt", "r", stdin);
   input();
   solve();
-  cout << ans << endl;
+  //cout << ans << endl;
   ans = ans % 1000000007;
   cout << ans << endl;
   // for (int i = 0; i < n; i++)
