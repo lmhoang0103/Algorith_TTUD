@@ -6,6 +6,7 @@ int n;
 int S[N];// S[i] stores the solution of sub-problem with index i
 bool b[N];// b[i] = true: sub-problem i has been solved
 int ans;
+
 int DP(int i){
     if(i == 1){// base-case, smallest sub-problem
         S[1] = a[1]; b[1] = true;
