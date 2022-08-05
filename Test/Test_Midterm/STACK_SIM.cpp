@@ -10,7 +10,6 @@ void POP()
 {
   if (!stk.empty())
   {
-
     cout << stk.top() << endl;
     stk.pop();
   }

@@ -58,6 +58,7 @@ int main()
   cout.tie(NULL);
   input();
   solve();
+  ans = ans % 1000000007;
   cout << ans;
   return 0;
 }
