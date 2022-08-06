@@ -22,7 +22,7 @@ void DFS(int u)
 
 int n, m;
 vector<vector<int>> vt;
-bool mark[MAX];
+bool visited[MAX];
 void input()
 {
     cin >> n >> m;
@@ -36,14 +36,17 @@ void input()
         vt[tmp1].push_back(tmp2);
         vt[tmp2].push_back(tmp1);
     }
+
+    for (int i = 0; i <= n; i++)
+        visited[i] = false;
 }
 
 void explore(int x)
 {
-    mark[x] = true;
+    visited[x] = true;
     for (int v : vt[x])
     {
-        if (!mark[v])
+        if (!visited[v])
         {
             explore(v);
         }
@@ -54,7 +57,7 @@ void dfs(int a)
 {
     for (int i = 1; i <= n; i++)
     {
-        if (!mark[i])
+        if (!visited[i])
         {
             explore(i);
         }

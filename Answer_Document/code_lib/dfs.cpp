@@ -1,16 +1,18 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 const int MAX = 50000;
 
 int n, m;
-vector< vector<int> > vt;
-bool mark[MAX];
+vector<vector<int>> vt;
+bool visited[MAX];
 
-void input(){
+void input()
+{
     cin >> n >> m;
-    vt.resize(n+1);
+    vt.resize(n + 1);
 
-    for(int i=0; i<m; i++){
+    for (int i = 0; i < m; i++)
+    {
         int tmp1, tmp2;
         cin >> tmp1 >> tmp2;
 
@@ -19,24 +21,31 @@ void input(){
     }
 }
 
-void explore(int x){
-    mark[x] = true;
-    for(int v: vt[x]){
-        if(!mark[v]){
+void explore(int x)
+{
+    visited[x] = true;
+    for (int v : vt[x])
+    {
+        if (!visited[v])
+        {
             explore(v);
         }
     }
 }
 
-void dfs(int a){
-    for(int i=1; i<=n; i++){
-        if(!mark[i]){
+void dfs(int a)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        if (!visited[i])
+        {
             explore(i);
         }
     }
 }
 
-int main(){
+int main()
+{
     input();
     dfs(1);
     return 0;

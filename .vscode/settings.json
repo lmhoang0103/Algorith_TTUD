@@ -5,6 +5,10 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "ios": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "list": "cpp",
+    "regex": "cpp",
+    "xlocale": "cpp",
+    "xstring": "cpp"
   }
 }

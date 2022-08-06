@@ -1,16 +1,18 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 const int MAX = 50000;
 
 int n, m;
-vector< vector<int> > vt;
-bool mark[MAX];
+vector<vector<int>> vt;
+bool visited[MAX];
 
-void input(){
+void input()
+{
     cin >> n >> m;
-    vt.resize(n+1);
+    vt.resize(n + 1);
 
-    for(int i=0; i<m; i++){
+    for (int i = 0; i < m; i++)
+    {
         int tmp1, tmp2;
         cin >> tmp1 >> tmp2;
 
@@ -19,17 +21,22 @@ void input(){
     }
 }
 
-void bfs(int u){
+void bfs(int u)
+{
     queue<int> q;
     q.push(u);
-    mark[u] = true;
+    visited[u] = true;
 
-    while(!q.empty()){
-        int x = q.front(); q.pop();
+    while (!q.empty())
+    {
+        int x = q.front();
+        q.pop();
 
-        for(int v : vt[x]){
-            if(!mark[v]){
-                mark[v] = true;
+        for (int v : vt[x])
+        {
+            if (!visited[v])
+            {
+                visited[v] = true;
                 q.push(v);
             }
         }
@@ -38,7 +45,8 @@ void bfs(int u){
     return;
 }
 
-int main(){
+int main()
+{
     input();
     bfs(1);
     return 0;
